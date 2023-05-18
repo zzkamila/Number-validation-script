@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Endterm part 3</title>
+</head>
+<body onpageshow="input()">
+<script>
+  function input(){
+      let isCorrect = false //determination a variable as false
+      let operator = '' //determination an empty variable
+    let p=prompt("Your number") //determination and introducing a variable
+    if(p[0]==='8'){ //consider the case when user's number starts with 8
+        if((p[1] === '(' && p[2] === '7' && p[3] === '0' && (p[4]==='1' || p[4] ==='2' || p[4]==='3') &&p[5] ===')')){
+           if(p.length == 13){ //consider the case if user wrote active or kcell number with brackets
+               isCorrect = true
+               operator = 'active or kcell'
+           }
+        }
+        if((p[1] === '7' && p[2] === '0' && (p[3]==='1' || p[3] ==='2' || p[3]==='3') )){
+            if(p.length == 11){ //consider the case is user wrote active or kcell number without brackets
+                isCorrect = true 
+                operator = 'active or kcell'
+            }
+        }
+        if((p[1] === '(' && p[2] === '7' && p[3] === '7' && (p[4]==='1' || p[4] ==='2' || p[4]==='3') &&p[5] ===')')){
+            if(p.length == 13){ //consider the case if user wrote beeline number with brackets
+                isCorrect = true
+                operator = 'beeline'
+            }
+        }
+        if((p[1] === '7' && p[2] === '7' && (p[2]==='1' || p[2] ==='2' || p[3]==='3') )){
+            if(p.length == 11){ //consider the case is user wrote beeline number without brackets
+                isCorrect = true
+                operator = 'beeline'
+            }
+        }
+    }
+    if(p[0]==='+' && p[1] === '7'){ //consider the case if user's number starts with +7
+          if((p[2] === '(' && p[3] === '7' && p[4] === '0' && (p[5]==='1' || p[5] ==='2' || p[5]==='3') &&p[6] ===')')){
+              if(p.length == 14){ //consider the case if user wrote active or beeline number with brackets
+                  isCorrect = true
+                  operator = 'active or kcell'
+              }
+          }
+          if((p[2] === '7' && p[3] === '0' && (p[4]==='1' || p[4] ==='2' || p[4]==='3') )){
+              if(p.length == 12){ //consider the case if user wrote active or kcell number without brackets
+                  isCorrect = true
+                  operator = 'active or kcell'
+              }
+          }
+          if((p[2] === '(' && p[3] === '7' && p[4] === '1' && (p[5]==='1' || p[5] ==='2' || p[5]==='3') &&p[6] ===')')){
+              if(p.length == 14){ //consider the case if user wrote beeline number with brackets
+                  isCorrect = true
+                  operator = 'beeline'
+              }
+          }
+          if(p[2] === '7' && p[3] === '7' && (p[4]==='1' || p[4] ==='2' || p[4]==='3') ){
+              if(p.length == 12){ //consider the case if user wrote beeline number without brackets
+                  isCorrect = true
+                  operator = 'beeline'
+              }
+          }
+      }
+    if(isCorrect){ //if the case is true then it's correct number
+        alert(p + " is a correct number and operator is '" + operator + "'." )
+    }
+    else{ //if the case is false then it's incorrect number
+       alert(p + " is an incorrect number.")
+     }
+  }
+</script>
+</body>
+</html>
